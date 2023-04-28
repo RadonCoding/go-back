@@ -1,9 +1,8 @@
 const script = document.createElement("script");
 script.textContent = `
-  const r = new RegExp('^(?:[a-z+]+:)?//', 'i');
   const originalPushState = history.pushState;
   history.pushState = function (state, title, url) {
-    // If url is null, relative or current then it's invalid
+    // If url is null or current then it's invalid
     if (!url || url === window.location.href) {
       console.error("Invalid URL for pushState");
       return;
