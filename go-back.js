@@ -4,7 +4,7 @@ script.textContent = `
   const originalPushState = history.pushState;
   history.pushState = function (state, title, url) {
     // If url is null, relative or current then it's invalid
-    if (!url || !r.test(url) || url === window.location.href) {
+    if (!url || url === window.location.href) {
       console.error("Invalid URL for pushState");
       return;
     }
